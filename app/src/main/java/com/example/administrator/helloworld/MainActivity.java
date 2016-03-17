@@ -5,29 +5,33 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.content_main);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        // Let's take a look at Toast and Log in action
+        Toast.makeText(this, "Can you see me", Toast.LENGTH_SHORT).show();
+        Log.i("info", "Done creating the app");
     }
 
+    public void topClick(View v){
+        Toast.makeText(this, "Top Button Clicked", Toast.LENGTH_SHORT).show();
+        Log.i("info", "The User Clicked the top button");
+    }
+
+    public void bottomClick(View v){
+        Toast.makeText(this, "Bottom Button Clicked", Toast.LENGTH_SHORT).show();
+        Log.i("info", "The user clicked the bottom button");
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
